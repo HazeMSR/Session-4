@@ -8,7 +8,7 @@
 ```
 docker run -d \
     --name my-postgres \
-    -p 8081:8080 \
+    -p 8081:5432 \
     -e POSTGRES_PASSWORD=mysecretpassword \
     -e POSTGRES_USER=myself \
     -v /home/ec2-user/Session-4/db:/home/data \
@@ -31,4 +31,22 @@ exit;
 # Import the database
 docker exec -it my-postgres pg_restore -U myself -d dvdrental /home/data/dvdrental.tar -W
 
+exit
+```
+
+### Spark
+
+1. Copy the postgres driver to the spark jars library:
+
+```
+# Login in your spark container as a root user
+docker exec -u 0 -it #SomeHashValue /bin/bash
+
+# Go to the following route:
+cd /usr/local/spark/jars
+
+# Copy you postgres driver to the current directory:
+cp $HOME/work/postgresql-driver.jar ./
+
+exit
 ```

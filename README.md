@@ -32,7 +32,7 @@ exit;
 tar xvf /home/data/dvdrental.tar
 
 # Import the database
-docker exec -it my-postgres pg_restore -U myself -d dvdrental /home/data/dvdrental.tar -W
+docker exec -it my-postgres pg_restore -U myself -d dvdrental /home/data/dvdrental.zip -W
 
 exit
 ```

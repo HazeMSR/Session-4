@@ -58,4 +58,10 @@ cd /usr/local/spark/jars
 cp $HOME/work/postgresql-driver.jar ./
 
 exit
+
+# Enter to your container now as the regular user
+docker exec -it my-spark /bin/bash
+
+# Get your Jupyter token
+jupyter server list
 ```

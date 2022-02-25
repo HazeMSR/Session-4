@@ -39,8 +39,17 @@ exit
 1. Copy the postgres driver to the spark jars library:
 
 ```
+# Create your jupyter container
+docker run -d \
+    --name=my-spark \
+    -v ~/Session-4/db:/home/jovyan/db \
+    -p 8080:8888 \
+    --shm-size=5g \
+    jupyter/pyspark-notebook
+    
 # Login in your spark container as a root user
-docker exec -u 0 -it #SomeHashValue /bin/bash
+
+docker exec -u 0 -it my-spark /bin/bash
 
 # Go to the following route:
 cd /usr/local/spark/jars

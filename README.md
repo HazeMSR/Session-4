@@ -28,6 +28,9 @@ CREATE DATABASE dvdrental;
 
 exit;
 
+# Unzip the file with the command
+tar xvf /home/data/dvdrental.tar
+
 # Import the database
 docker exec -it my-postgres pg_restore -U myself -d dvdrental /home/data/dvdrental.tar -W
 
